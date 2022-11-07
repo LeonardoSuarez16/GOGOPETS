@@ -1,3 +1,4 @@
+import {authenticate} from '@loopback/authentication';
 import {service} from '@loopback/core';
 import {
   Count,
@@ -16,6 +17,7 @@ import fetch from 'node-fetch';
 import {Credenciales, Usuario} from '../models';
 import {UsuarioRepository} from '../repositories';
 import {AutentificacionService} from '../services';
+
 
 export class UsuarioController {
   constructor(
@@ -56,8 +58,8 @@ export class UsuarioController {
       throw new HttpErrors[401]('los datos son invalidos');
     }
   }
-
-
+// para solicitar que esta funcion quede protegida con toke
+  @authenticate('admin')
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
@@ -95,6 +97,8 @@ export class UsuarioController {
     return p;
   }
 
+// para saltar esta funcion cuando protegemos todo el modulo
+  @authenticate.skip()
   @get('/usuarios/count')
   @response(200, {
     description: 'Usuario model count',
