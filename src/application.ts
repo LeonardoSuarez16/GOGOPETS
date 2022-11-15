@@ -44,7 +44,7 @@ export class MascotasApplication extends BootMixin(
     };
 
     registerAuthenticationStrategy(this, EstrategiaAdministrador);
-
+// poner aqui las estrategias que  creemos
     this.component(AuthenticationComponent);
 
 

@@ -13,7 +13,7 @@ const jwt = require("jsonwebtoken");
 export class AutentificacionService {
   constructor(
     // importamos nuestro repositorio y siempre empesamos a escribir y le damos clip ensima para que el
-    // importe de una vez lo de arriba
+    // importe de una vez lo de arriba recuerde que esto es la lista o base de datos de usuarios
     @repository(UsuarioRepository)
     public UsuarioRepository: UsuarioRepository
   ) { }
@@ -51,7 +51,7 @@ export class AutentificacionService {
         id: usuario.id,
         correo: usuario.correo,
         nombre: usuario.nombre + " " + usuario.apellido
-        //expiracion se puede poner tiempo en segundo si uno quiere
+        //expiracion se puede poner tiempo en segundo si uno quiere ademas puede poner todos los atributos de usuario
       },
 
     },

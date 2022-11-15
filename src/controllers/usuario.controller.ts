@@ -59,7 +59,7 @@ export class UsuarioController {
     }
   }
 // para solicitar que esta funcion quede protegida con toke
-  @authenticate('admin')
+  //@authenticate('admin')
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
